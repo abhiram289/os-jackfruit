@@ -128,7 +128,7 @@ sudo rmmod monitor
 
 **Observation:** Higher-priority processes receive more CPU time, but both execute due to CFS fairness.
 
----
+
 
 ### CPU vs I/O
 
@@ -139,4 +139,4 @@ sudo rmmod monitor
 
 **Observation:** I/O-bound processes are scheduled quickly upon waking, demonstrating CFS responsiveness.
 
----
+
