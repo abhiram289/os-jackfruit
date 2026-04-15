@@ -71,7 +71,7 @@ sudo rmmod monitor
 dmesg | tail   # verify "Module unloaded"
 ```
  
----
+
  
 ## 3. Demo Screenshots
 
@@ -86,7 +86,7 @@ dmesg | tail   # verify "Module unloaded"
 | 7 | Scheduling experiment | ![os_7](screenshot/7.png) |
 | 8 | Clean teardown | ![os_8_1](screenshot/8.png) |
  
----
+
  
 ## 4. Engineering Analysis
  
@@ -107,7 +107,7 @@ RSS measures physical RAM pages currently in use. It does not measure virtual me
 ### Scheduling Behavior
 Linux CFS assigns CPU time proportional to priority weights derived from `nice` values. Lower nice = higher weight = more CPU time under contention. I/O-bound processes frequently block and yield the CPU, so CFS gives them a scheduling boost when they wake, making them more responsive despite sharing the CPU with CPU-bound processes.
  
----
+
  
 ## 5. Design Decisions and Tradeoffs
  
@@ -119,7 +119,6 @@ Linux CFS assigns CPU time proportional to priority weights derived from `nice` 
 | Kernel monitor | Mutex over spinlock | Cannot be held in hard IRQ context | ioctl runs in process context; critical section is short, no sleeping |
 | Scheduling experiments | `nice` values | Effect only visible under contention | Directly demonstrates CFS weight-based fairness |
  
----
  
 ## 6. Scheduler Experiment Results
  
